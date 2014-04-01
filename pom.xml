@@ -6,7 +6,7 @@
 
     <groupId>com.bc.ceres</groupId>
     <artifactId>ceres</artifactId>
-    <version>0.14-SNAPSHOT</version>
+    <version>0.14-GS-SNAPSHOT</version>
     <name>Ceres</name>
     <url>http://www.brockmann-consult.de/</url>
 
@@ -59,7 +59,19 @@
         </repository>
     </repositories>
 
+<profiles>
+   <profile>
+   <id>deploygeosolutions</id>
     <distributionManagement>
+      <repository>
+       <uniqueVersion>false</uniqueVersion>
+       <id>geosolutions</id>
+       <url>ftp://demo.geo-solutions.it</url>
+      </repository>
+    </distributionManagement>
+    </profile>
+</profiles>    
+    <!--distributionManagement>
         <repository>
             <id>bc-mvn-repo-public</id>
             <name>Public Maven Repository at Brockmann Consult</name>
@@ -72,7 +84,7 @@
             <url>scp://www.brockmann-consult.de/var/www/www.brockmann-consult.de/mvn/os</url>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement-->
 
     <licenses>
         <license>
@@ -213,6 +225,11 @@
                 <artifactId>wagon-ssh</artifactId>
                 <version>1.0-beta-7</version>
             </extension>
+            <extension>                                  
+             <groupId>org.apache.maven.wagon</groupId>   
+             <artifactId>wagon-ftp</artifactId>           
+             <version>1.0-beta-2</version>               
+            </extension>                                
         </extensions>
     </build>
 
